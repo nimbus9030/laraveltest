@@ -48,7 +48,7 @@
 					  <button class="btn btn-light" title="Export (Ctrl + E)" id="save-btn" data-vvveb-action="save" data-vvveb-shortcut="ctrl+e">
 						  <i class="la la-save"></i>
 					  </button>
-					  <button class="btn btn-light" title="Export (Ctrl + E)" id="suctom-save-btn" onclick="Post();" data-vvveb-action="save" data-vvveb-shortcut="ctrl+e">
+					  <button class="btn btn-light" title="Export (Ctrl + E)" id="suctom-save-btn" onclick="Post();" data-vvveb-shortcut="ctrl+e">
 						  <i class="la la-save"></i>
 					  </button>
 					</div>	
@@ -578,9 +578,9 @@ $(document).ready(function()
 function Post(){
 	// alert(111);
 
-	var text = Vvveb.Builder.getHtml();
+	// var text = Vvveb.Builder.getHtml();
 
-
+	var text = Vvveb.Builder.getBodyHtml();
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
 	$.ajax({

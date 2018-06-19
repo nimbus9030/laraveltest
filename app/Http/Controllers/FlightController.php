@@ -22,6 +22,13 @@ class FlightController extends Controller
     }
 
 
+    public function export()
+    {
+        $tasks = Flight::find(8);
+        // Log::info($tasks);
+        return view('vvveb.export.narrow-jumbotron.index',compact('tasks'));
+    }
+
     public function updateOrder(Request $request)
     {
         $tasks = Flight::all();
@@ -54,16 +61,11 @@ class FlightController extends Controller
 
     public function exportHtml(Request $request)
     {   
-        // Log::info( $request->text );
-
-        Storage::disk('local')->put('file.html', $request->text);
-        // $url = Storage::url('file.html');
-        // Log::info($url);
-
-        // return asset('storage/file.html');
-
-        // return redirect($url);
-        // return response('OK', 200);
+        $task = Flight::find(8);
+        $task->update([ 'title' => $request->text ]);
+        
+        Log::info( $request->text );
+        return response('OK', 200);
     }
 
 }

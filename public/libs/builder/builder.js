@@ -1000,7 +1000,11 @@ Vvveb.Builder = {
          + doc.documentElement.innerHTML
          + "\n</html>";
 	},
-	
+
+	getBodyHtml: function()
+	{
+		return $(window.FrameDocument).find("body").html();
+	},
 	setHtml: function(html) 
 	{
 		//update only body to avoid breaking iframe css/js relative paths

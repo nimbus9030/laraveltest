@@ -26,9 +26,11 @@
             // console.log(tag.title);
 
             var text = tag.title;
-            // console.log( text.length );
+            console.log( text );
 
-            $('body').html(text);
+            // $('body').html(text);
+            // doc.documentElement.innerHTML = text;
+
         });
 
     </script>

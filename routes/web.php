@@ -12,7 +12,7 @@
 */
 
 
-use Log;
+// use Log;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 Route::post('/', 'FlightController@exportHtml');
 
+
+Route::get('/export', 'FlightController@export');
 
 // Route::get('/fileshow', 'FlightController@fileShow');
 
@@ -29,7 +31,7 @@ Route::get('/fileshow', function ()
     $path = storage_path('app/storage/file.html');
 
     if (!File::exists($path)) {
-        Log::error('here');
+        // Log::error('here');
         abort(404);
     }
 
