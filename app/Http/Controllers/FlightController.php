@@ -64,7 +64,11 @@ class FlightController extends Controller
         $task = Flight::find(8);
         $task->update([ 'title' => $request->text ]);
         
-        Log::info( $request->text );
+        Log::info( "successed db update" );
+
+        Storage::put('edited_html.html', $request->text);
+        Log::info( "successed write html file" );
+
         return response('OK', 200);
     }
 
