@@ -24,7 +24,7 @@ class FlightController extends Controller
 
     public function export()
     {
-        $tasks = Flight::find(8);
+        $tasks = Flight::find(1);
         // Log::info($tasks);
         return view('vvveb.export.narrow-jumbotron.index',compact('tasks'));
     }
@@ -51,7 +51,7 @@ class FlightController extends Controller
 
     public function updateHtml(Request $request)
     {
-        $task = Flight::find(8);
+        $task = Flight::find(1);
         $task->update([ 'title' => $request->order ]);
         Log::info( $task );
         Log::info( $request->order );
@@ -61,7 +61,7 @@ class FlightController extends Controller
 
     public function exportHtml(Request $request)
     {   
-        $task = Flight::find(8);
+        $task = Flight::find(1);
         $task->update([ 'title' => $request->text ]);
         
         Log::info( "successed db update" );
