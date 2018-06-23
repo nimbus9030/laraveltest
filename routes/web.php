@@ -14,10 +14,12 @@
 
 // use Log;
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('vvveb/editor');
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('vvveb/editor');
+// });
+
+Route::get('/', 'FlightController@index');
 Route::post('/', 'FlightController@exportHtml');
 
 

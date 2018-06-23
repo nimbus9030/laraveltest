@@ -544,10 +544,19 @@
 
 
 <script>
+
 $(document).ready(function() 
 {
 	Vvveb.Builder.init('demo/narrow-jumbotron/index.html', function() {
 		//run code after page/iframe is loaded
+		var tag = {!! json_encode($tasks) !!};
+		var text = tag.title;
+
+		$(window.FrameDocument).find("body").html(text);
+		
+		// console.log( $(window.FrameDocument).find("body").html() );
+		// demo/narrow-jumbotron/index.html
+		// /storage/edited_html.html
 	});
 
 	Vvveb.Gui.init();

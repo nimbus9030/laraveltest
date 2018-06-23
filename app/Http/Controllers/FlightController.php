@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Storage;
 
 class FlightController extends Controller
 {
+    public function index()
+    {
+        $tasks = Flight::find(1);
+        return view('vvveb.editor',compact('tasks'));
+        // return view('vvveb.editor');
+    }
+
+
     public function showDatatable()
     {
         // $tasks = Flight::orderBy('order','ASC')->select('id','title','status','created_at')->get();
@@ -66,7 +74,12 @@ class FlightController extends Controller
         
         Log::info( "successed db update" );
 
-        Storage::put('edited_html.html', $request->text);
+        // $file = $request->file('text');
+        // $path = $file->storeAs('public', 'test.html');
+        // Storage::put('edited_html.html', $request->text);
+        Storage::disk('editor_public')->put('edited_html.html', $request->text);
+        
+        Log::info(env('APP_URL'));
         Log::info( "successed write html file" );
 
         return response('OK', 200);
